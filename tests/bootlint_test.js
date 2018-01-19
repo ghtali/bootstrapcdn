@@ -16,16 +16,16 @@ before((done) => {
 });
 
 describe('bootlint', () => {
-    const current = config.bootlint[0];
+    const latest = config.bootlint[0];
 
     describe('config', () => {
-        it('is current', (done) => {
-            assert(current.current);
+        it('is latest', (done) => {
+            assert(latest.latest);
             done();
         });
 
         it('has integrity', (done) => {
-            assert(typeof current.javascriptSri !== 'undefined');
+            assert(typeof latest.javascriptSri !== 'undefined');
             done();
         });
     });
@@ -55,14 +55,14 @@ describe('bootlint', () => {
     });
 
     it('has javascript', (done) => {
-        assert(response.body.includes(current.javascript),
-            `Expects response body to include "${current.javascript}"`);
+        assert(response.body.includes(latest.javascript),
+            `Expects response body to include "${latest.javascript}"`);
         done();
     });
 
     ['html', 'pug', 'haml'].forEach((fmt) => {
         it(`has ${fmt}`, (done) => {
-            const str = helpers.javascript[fmt](current.javascript, current.javascriptSri);
+            const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
             assert(response.body.includes(str), `Expects response body to include "${str}"`);
             done();

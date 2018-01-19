@@ -39,8 +39,8 @@ describe('legacy/bootstrap', () => {
         done();
     });
 
-    config.bootstrap3.forEach((bootstrap) => {
-        if (bootstrap.current === true) {
+    config.bootstrap.forEach((bootstrap) => {
+        if (bootstrap.latest === true) {
             return;
         }
 

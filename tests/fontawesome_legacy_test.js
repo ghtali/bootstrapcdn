@@ -40,7 +40,7 @@ describe('legacy/fontawesome', () => {
     });
 
     config.fontawesome.forEach((fontawesome) => {
-        if (fontawesome.current === true) {
+        if (fontawesome.latest === true) {
             return;
         }
 
